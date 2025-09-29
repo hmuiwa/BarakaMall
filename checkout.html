@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - BarakaMall</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* This is a simple, temporary style block for the checkout page.
+           A more complete solution would integrate these into styles.css */
+        .checkout-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        .checkout-btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .checkout-btn-submit:hover {
+            background-color: #0056b3;
+        }
+        .alert {
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 4px;
+            display: none; /* Hidden by default */
+        }
+        .alert.alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border-color: #c3e6cb;
+        }
+        .alert.alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+        }
+        .alert.alert-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border-color: #bee5eb;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="site-logo">BarakaMall</a>
+            <div class="search-bar" style="visibility: hidden;"></div>
+            <a href="login.html" class="account-icon">👤 Account</a>
+            <a href="cart.html" class="cart-icon" aria-label="View shopping cart">
+                🛒 (<span id="cart-item-count">0</span>)
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">Checkout</h1>
+        <div class="checkout-form-container">
+            <form id="checkout-form" class="checkout-form" novalidate>
+                <h2>Shipping Information</h2>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Shipping Address</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                
+                <h2>M-Pesa Payment</h2>
+                <p>This is a frontend-only demo. No real payments are processed.</p>
+                <div class="form-group">
+                    <label for="mpesa-phone">M-Pesa Phone Number</label>
+                    <input type="tel" id="mpesa-phone" name="mpesa-phone" placeholder="07XXXXXXXX" required pattern="^(07|01)[0-9]{8}$" title="Enter a valid Kenyan phone number starting with 07 or 01">
+                </div>
+                
+                <button type="submit" class="checkout-btn-submit">Place Order</button>
+            </form>
+            <div id="confirmation-alert" class="alert alert-success" style="display: none;">
+                <p><strong>Order Placed Successfully!</strong></p>
+                <p>Thank you for your purchase. Your order has been confirmed.</p>
+                <p><a href="index.html">Continue Shopping</a></p>
+            </div>
+            <div id="error-alert" class="alert alert-error" style="display: none;">
+                <p><strong>Error:</strong> Please fill out all required fields correctly.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-section about">
+                <h3>About Us</h3>
+                <p>Your one-stop shop for quality products across multiple categories. We strive to provide the best shopping experience.</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="checkout.html">Checkout</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h3>Follow Us</h3>
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="social-icon facebook">
+                    <img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="Facebook Icon" />
+                </a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter" class="social-icon twitter">
+                    <img src="https://cdn-icons-png.flaticon.com/24/733/733579.png" alt="Twitter Icon" />
+                </a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="social-icon instagram">
+                    <img src="https://cdn-icons-png.flaticon.com/24/733/733558.png" alt="Instagram Icon" />
+                </a>
+                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="social-icon linkedin">
+                    <img src="https://cdn-icons-png.flaticon.com/24/733/733561.png" alt="LinkedIn Icon" />
+                </a>
+            </div>
+            <p>&copy; 2025 BarakaMall. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="js/checkout.js"></script>
+    <script type="module" src="js/cart.js"></script>
+</body>
+</html>
